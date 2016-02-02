@@ -1,0 +1,15 @@
+<% provide :title, "Draw | ActionCable Demo" %>
+<h1>Welcome to a rails ActionCable demo!</h1>
+<p>In this demo you can draw in a room and everyone in that room can see it.</p>
+
+<h3>Instructions:</h3>
+<p>
+<ul>
+  <li>To join a room with a name of "trains" go to : <%= link_to (url_for action: :show, picture_id: "trains", only_path: false), action: :show, picture_id: "trains" %></li>
+  <li>A name can only contain numbers and letters.</li>
+  <li>To draw, click and drag inside the border.</li>
+</ul>
+Anyone also in the room can see you drawing in realtime.<br/>
+<small>Note: "cable" is a reserved room name</small>
+</p>
+
