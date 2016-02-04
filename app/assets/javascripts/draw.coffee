@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
 mousedown = false
 
 document.addEventListener( 'mousedown', ( evt ) ->
@@ -24,7 +23,6 @@ ready = ->
     window.ctx.moveTo( start.x, start.y )
     window.ctx.lineTo( end.x, end.y )
     window.ctx.stroke()
-    #window.ctx.closePath()
     canvas = document.getElementById( "easel" )
     ctx = canvas.getContext( '2d' )
     console.log("drawingling")

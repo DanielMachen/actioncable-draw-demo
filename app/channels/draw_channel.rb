@@ -11,8 +11,6 @@ class DrawChannel < ApplicationCable::Channel
   def watch( data )
     if data['image_id'].match /\A[a-zA-Z0-9]+\Z/
       stream_from "image:#{data['image_id']}"
-    else
-      return false
     end
     stop_all_streams
   end
@@ -23,6 +21,7 @@ class DrawChannel < ApplicationCable::Channel
   end
 
   def clear( data )
-    ActionCable.server.broadcast("image:#{data['image_id'].to_s}", {clear_image: true})
+    ActionCable.server.broadcast("image:#{data['image_id'].to_s}", 
+                                 {clear_image: true})
   end
 end
