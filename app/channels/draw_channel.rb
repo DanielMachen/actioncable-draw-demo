@@ -16,12 +16,16 @@ class DrawChannel < ApplicationCable::Channel
   end
 
   def stroke( data )
-    ActionCable.server.broadcast("image:#{data['image_id']}", 
-                                 { start: { x: data['start_x'].to_i, y: data['start_y'].to_i }, end: { x: data['end_x'].to_i, y: data['end_y'].to_i } } )
+    if data['image_id'].match /\A[a-zA-Z0-9]+\Z/
+      ActionCable.server.broadcast("image:#{data['image_id']}", 
+                                   { start: { x: data['start_x'].to_i, y: data['start_y'].to_i }, end: { x: data['end_x'].to_i, y: data['end_y'].to_i } } )
+    end
   end
 
   def clear( data )
-    ActionCable.server.broadcast("image:#{data['image_id'].to_s}", 
-                                 {clear_image: true})
+    if data['image_id'].match /\A[a-zA-Z0-9]+\Z/
+      ActionCable.server.broadcast("image:#{data['image_id'].to_s}", 
+                                   {clear_image: true})
+    end
   end
 end

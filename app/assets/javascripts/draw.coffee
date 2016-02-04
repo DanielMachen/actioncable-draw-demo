@@ -25,8 +25,7 @@ ready = ->
     window.ctx.stroke()
     canvas = document.getElementById( "easel" )
     ctx = canvas.getContext( '2d' )
-    console.log("drawingling")
-
+    
   window.clear_image = () ->
     window.ctx.clearRect(0,0, window.canvas.width, window.canvas.height)
     window.ctx.closePath()
