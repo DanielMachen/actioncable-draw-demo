@@ -8,10 +8,4 @@ class DrawController < ApplicationController
       redirect_to :root
     end
   end
-
-  def new
-  #  @picture_id = params[:room_id]
-  #  redirect_to action: "show", picture_id: @picture_id
-  #  redirect_to action: "index"
-  end
 end
