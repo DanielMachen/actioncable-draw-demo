@@ -9,12 +9,3 @@ Draw below for all to see.
 <br/>
 
 <button onclick="App.draw.clear('<%= escape_javascript( @picture_id ) %>')">Clear</button>
-
-<script> 
-window.image_id = "<%= escape_javascript( @picture_id ) %>";
-
-window.connected = function () {
-  App.draw.watch("<%= escape_javascript( @picture_id ) %>");
-}
-  
-</script>

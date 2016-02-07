@@ -5,14 +5,15 @@ class DrawChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
+    stop_all_streams
     # Any cleanup needed when channel is unsubscribed
   end
 
   def watch( data )
+    stop_all_streams
     if data['image_id'].match /\A[a-zA-Z0-9]+\Z/
       stream_from "image:#{data['image_id']}"
     end
-    stop_all_streams
   end
 
   def stroke( data )
